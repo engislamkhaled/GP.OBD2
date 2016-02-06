@@ -1,11 +1,11 @@
 package PID.parser;
 
 public class IntakeManifoldAbsolutePressure {
-	private int IntakeManifoldAbsolutePressure;
+	private int intakeManifoldAbsolutePressure;
 	public int GetIntakeManifoldAbsolutePressure(String hexadecimal){
-		IntakeManifoldAbsolutePressure= Integer.parseInt(hexadecimal, 16);
+		intakeManifoldAbsolutePressure= Integer.parseInt(hexadecimal, 16);
 		
-		return IntakeManifoldAbsolutePressure;
+		return intakeManifoldAbsolutePressure;
 	}
 
 }
