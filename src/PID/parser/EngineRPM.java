@@ -5,7 +5,7 @@ public class EngineRPM {
 	
 	public int EngineRPMValue_B;
 	public int EngineRPMValue;
-	public int GetEngineCoolantTemperature(String hexadecimalA, String hexadeciamlB){
+	public int GetEngineRPMValue(String hexadecimalA, String hexadeciamlB){
 		EngineRPMValue_A= Integer.parseInt(hexadecimalA, 16);
 		EngineRPMValue_B=Integer.parseInt(hexadeciamlB,16);
 		
