@@ -14,9 +14,9 @@ public class Parser {
 	public int evaporativePurgeValue;
 	public int fuelLevelInputValue;
 	public int fuelPressure;
-	public int fuelrailPressureValue_A;
-	public int fuelrailPressureValue_B;
-	public double fuelrailPressureValue;
+	public int fuelrailPressureRTMV_A;
+	public int fuelrailPressureRTMV_B;
+	public double fuelrailPressureRTMV;
 	public int fuelrailPressureDGDInject_A;
 	public int fuelrailPressureDGDInject_B;
 	public double fuelrailPressureDGDInject;
@@ -135,12 +135,12 @@ public class Parser {
 		fuelrailPressureDGDInject= ((fuelrailPressureDGDInject_A *256 )+ fuelrailPressureDGDInject_B)* 10 ;
 		return fuelrailPressureDGDInject;
 	}
-	public double FuelrailPressure_relative_to_manifold_vacuum_(String hexadecimalA, String hexadeciamlB){
-		fuelrailPressureValue_A= Integer.parseInt(hexadecimalA, 16);
-		fuelrailPressureValue_B=Integer.parseInt(hexadeciamlB,16);
+	public double GetFuelrailPressureRelativeToManifoldVacuum_(String hexadecimalA, String hexadeciamlB){
+		fuelrailPressureRTMV_A= Integer.parseInt(hexadecimalA, 16);
+		fuelrailPressureRTMV_B=Integer.parseInt(hexadeciamlB,16);
 		
-		fuelrailPressureValue= ((fuelrailPressureValue_A *256 )+ fuelrailPressureValue_B)* 0.079 ;
-		return fuelrailPressureValue;
+		fuelrailPressureRTMV= ((fuelrailPressureRTMV_A *256 )+ fuelrailPressureRTMV_B)* 0.079 ;
+		return fuelrailPressureRTMV;
 	}
 	public int GetFuelPressure(String hexadecimal){
 		fuelPressure = Integer.parseInt(hexadecimal, 16);
