@@ -1,6 +1,6 @@
 package PID.parser;
 
-public class Parse {
+public class Parser {
 	public int commandedEGRValue;
 	public int distanceTraveledWithMILOnValue_A;
 	public int distanceTraveledWithMILOnValue_B;
@@ -14,9 +14,9 @@ public class Parse {
 	public int evaporativePurgeValue;
 	public int fuelLevelInputValue;
 	public int fuelPressure;
-	public int FuelrailPressureValue_A;
-	public int FuelrailPressureValue_B;
-	public double FuelrailPressureValue;
+	public int fuelrailPressureValue_A;
+	public int fuelrailPressureValue_B;
+	public double fuelrailPressureValue;
 	public int fuelrailPressureDGDInject_A;
 	public int fuelrailPressureDGDInject_B;
 	public double fuelrailPressureDGDInject;
@@ -29,32 +29,32 @@ public class Parse {
 	public int O2Sn_WR_lambdaValue_B;
 	public int O2Sn_WR_lambdaValue_C;
 	public int O2Sn_WR_lambdaValue_D;
-	public int Oxygen_bankValue_A;
-	public int Oxygen_SensorsValue_B;
-	public int RuntimeSinceEngineStartValue_A;
-	public int RuntimeSinceEngineStartValue_B;
-	public int RuntimeSinceEngineStartValue;
+	public int oxygen_bankValue_A;
+	public int oxygen_SensorsValue_B;
+	public int runtimeSinceEngineStartValue_A;
+	public int runtimeSinceEngineStartValue_B;
+	public int runtimeSinceEngineStartValue;
 	public int short_long_termFuel_value;
-	public int ThrottlePositionValue;
-	public int TimingAdvanceValue;
-	public int VehicleSpeed;
+	public int throttlePositionValue;
+	public int timingAdvanceValue;
+	public int vehicleSpeed;
 	
 	public int GetVehicleSpeed(String hexadecimal){
-		VehicleSpeed= Integer.parseInt(hexadecimal, 16);
+		vehicleSpeed= Integer.parseInt(hexadecimal, 16);
 		
-		return VehicleSpeed;
+		return vehicleSpeed;
 	}
 
 	public int GetTimingAdvance(String hexadecimal){
-		TimingAdvanceValue = Integer.parseInt(hexadecimal, 16);
-		TimingAdvanceValue = (TimingAdvanceValue- 128)/2;
-		return TimingAdvanceValue;
+		timingAdvanceValue = Integer.parseInt(hexadecimal, 16);
+		timingAdvanceValue = (timingAdvanceValue- 128)/2;
+		return timingAdvanceValue;
 	}
 	public int GetThrottlePositionValue(String hexadecimal){
 
-		ThrottlePositionValue = Integer.parseInt(hexadecimal, 16);
-		ThrottlePositionValue = ThrottlePositionValue * 100/255;	//Percentage Output
-		return ThrottlePositionValue;
+		throttlePositionValue = Integer.parseInt(hexadecimal, 16);
+		throttlePositionValue = throttlePositionValue * 100/255;	//Percentage Output
+		return throttlePositionValue;
 	}
 	public int Get_short_long_termFuelValue(String hexadecimal){
 		short_long_termFuel_value = Integer.parseInt(hexadecimal, 16);
@@ -64,30 +64,30 @@ public class Parse {
 	}
 	
 	public int GetRuntimeSinceEngineStart(String hexadecimalA, String hexadeciamlB){
-		RuntimeSinceEngineStartValue_A= Integer.parseInt(hexadecimalA, 16);
-		RuntimeSinceEngineStartValue_B=Integer.parseInt(hexadeciamlB,16);
+		runtimeSinceEngineStartValue_A= Integer.parseInt(hexadecimalA, 16);
+		runtimeSinceEngineStartValue_B=Integer.parseInt(hexadeciamlB,16);
 		
-		RuntimeSinceEngineStartValue= ((RuntimeSinceEngineStartValue_A *256 )+ RuntimeSinceEngineStartValue_B) ;
-		return RuntimeSinceEngineStartValue;
+		runtimeSinceEngineStartValue= ((runtimeSinceEngineStartValue_A *256 )+ runtimeSinceEngineStartValue_B) ;
+		return runtimeSinceEngineStartValue;
 	}
 	
 	public int[] GetOxygenSensors_bank(String hexadecimalA, String hexadeciamlB){
 		int[] returnvalues = new int[2];
 
 		
-		Oxygen_bankValue_A= Integer.parseInt(hexadecimalA, 16);
+		oxygen_bankValue_A= Integer.parseInt(hexadecimalA, 16);
 		if (hexadeciamlB == "FF")
 		{
 			System.out.println("sensor is not used in trim calc");
-			Oxygen_SensorsValue_B = 0;
+			oxygen_SensorsValue_B = 0;
 		}
 		else{
-		Oxygen_SensorsValue_B=Integer.parseInt(hexadeciamlB,16);}
+		oxygen_SensorsValue_B=Integer.parseInt(hexadeciamlB,16);}
 		
-		Oxygen_bankValue_A=Oxygen_bankValue_A/200;
-		Oxygen_SensorsValue_B=(Oxygen_SensorsValue_B -128)*100 /128;
-		returnvalues[0]=Oxygen_bankValue_A;
-		returnvalues[1]=Oxygen_SensorsValue_B;
+		oxygen_bankValue_A=oxygen_bankValue_A/200;
+		oxygen_SensorsValue_B=(oxygen_SensorsValue_B -128)*100 /128;
+		returnvalues[0]=oxygen_bankValue_A;
+		returnvalues[1]=oxygen_SensorsValue_B;
 		
 		return returnvalues;
 	}
@@ -136,11 +136,11 @@ public class Parse {
 		return fuelrailPressureDGDInject;
 	}
 	public double FuelrailPressure_relative_to_manifold_vacuum_(String hexadecimalA, String hexadeciamlB){
-		FuelrailPressureValue_A= Integer.parseInt(hexadecimalA, 16);
-		FuelrailPressureValue_B=Integer.parseInt(hexadeciamlB,16);
+		fuelrailPressureValue_A= Integer.parseInt(hexadecimalA, 16);
+		fuelrailPressureValue_B=Integer.parseInt(hexadeciamlB,16);
 		
-		FuelrailPressureValue= ((FuelrailPressureValue_A *256 )+ FuelrailPressureValue_B)* 0.079 ;
-		return FuelrailPressureValue;
+		fuelrailPressureValue= ((fuelrailPressureValue_A *256 )+ fuelrailPressureValue_B)* 0.079 ;
+		return fuelrailPressureValue;
 	}
 	public int GetFuelPressure(String hexadecimal){
 		fuelPressure = Integer.parseInt(hexadecimal, 16);
