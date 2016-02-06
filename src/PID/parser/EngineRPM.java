@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/Islam-Branch
 package PID.parser;
 
 public class EngineRPM {
@@ -12,6 +16,11 @@ public class EngineRPM {
 		EngineRPMValue= ((EngineRPMValue_A *256 )+ EngineRPMValue_B)/4 ;
 		return EngineRPMValue;
 	}
+<<<<<<< HEAD
 
 
 }
+=======
+}
+
+>>>>>>> origin/Islam-Branch
