@@ -8,8 +8,4 @@ public class IntakeManifoldAbsolutePressure {
 		return IntakeManifoldAbsolutePressure;
 	}
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/Islam-Branch
