@@ -39,10 +39,10 @@ public class ServerServlet extends HttpServlet {
 		String uname = request.getParameter("username");
 		String pass = request.getParameter("password");
 		response.getWriter().println("Validating user with username = "+uname+" and password = "+pass);
-//		if( ValidateUser(uname, pass) == 1)
-//			response.getWriter().append("User Found.");
-//		else
-//			response.getWriter().append("Unable to find user.");
+		if( ValidateUser(uname, pass) == 1)
+			response.getWriter().append("User Found.");
+		else
+			response.getWriter().append("Unable to find user.");
 	}
 
 	/**
@@ -60,6 +60,8 @@ public class ServerServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
+	
+	
 	
 	
 	public static int ValidateUser(String name, String pass)
