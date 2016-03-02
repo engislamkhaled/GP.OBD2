@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ServerServlet")
 public class ServerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static String host="jdbc:mysql://localhost:3306/obd-gp-dev-1", username="root", pswd="vodafone";
+	private static String host="jdbc:mysql://localhost:3306/obd-gp-dev-1", username="root", pswd="12345678";
 	private static Connection con;
        
     /**
