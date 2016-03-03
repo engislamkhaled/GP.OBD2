@@ -93,10 +93,13 @@ public class ServerServlet extends HttpServlet {
 	    String pass = (String) joUser.get("pass");
 	    response.setContentType("text/html");
 	    System.out.println("A new user " + user + " has been created with password " + pass);
+	    int checkUser = ValidateUser(user,pass);
 	    PrintWriter out = response.getWriter();
-	    out.write("123123123");
-	    out.flush();
-	    out.close();
+	    if(checkUser == 1){
+		    out.write("123123123");
+		    out.flush();
+		    out.close();
+	    }
 	  }
 	/**
 	 * @see HttpServlet#doPut(HttpServletRequest, HttpServletResponse)
