@@ -42,10 +42,15 @@ public class ServerServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+<<<<<<< Updated upstream
 		/*String uname = request.getParameter("asd");
 		String pass = request.getParameter("asds");
 		//System.out.println(request.toString());
 		//System.out.println(request.getParameterNames().toString());
+=======
+		String uname = request.getParameter("use");
+		String pass = request.getParameter("password");
+>>>>>>> Stashed changes
 		response.getWriter().println("Validating user with username = "+uname+" and password = "+pass);
 		System.out.println(uname);
 		System.out.println(pass);
